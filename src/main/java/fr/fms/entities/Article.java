@@ -33,6 +33,7 @@ public class Article implements Serializable {
 	private double price;
 	
 	@ManyToOne
+	@NotNull
 	private Category category;
 
 	

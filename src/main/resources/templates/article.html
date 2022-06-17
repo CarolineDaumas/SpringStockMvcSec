@@ -1,42 +1,61 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" 
-	xmlns:layout="http://www.ul.traq.net.nz/thymeleaf/layout"
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ul.traq.net.nz/thymeleaf/layout"
 	layout:decorate="layout">
+
 <head>
 
-<meta charset="ISO-8859-1">
+	<meta charset="ISO-8859-1">
 
-<title>Saisir un article</title>
+	<title>Saisir un article</title>
 
 </head>
 
 <body>
 	<div layout:fragment="content">
-	<div class="container">
-		<div class="card">
-			<div class="card-header">
-				Saisir un nouvel article
-			</div>
-			<div class="card-body">
-				<form th:action="@{/save}" method="post">
-					<div class="mb-3">
-						<label class="form-label">Description :</label>
-						<input type="text" class="form-control" name="description" th:value="${article.description}">
-						<span th:errors="${article.description}"></span>
-					</div>
-					
-					<div class="mb-3">
-						<label class="form-label">Price:</label>
-						<input type="text" class="form-control" name="price" th:value="${article.price}">
-						<span th:errors="${article.price}"></span>
-					</div>
-					
-					
-					<button type=" submit" class="btn btn-primary">Save</button>
-				</form>
+		<div class="container">
+			<div class="card">
+				<div class="card-header">
+					Saisir un nouvel article
+				</div>
+				<div class="card-body">
+					<form th:action="@{/save}" method="post">
+						<div class="mb-3">
+							<label class="form-label">Description :</label>
+							<input type="text" class="form-control" name="description"
+								th:value="${article.description}">
+							<span th:errors="${article.description}"></span>
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label">Price:</label>
+							<input type="text" class="form-control" name="price" th:value="${article.price}">
+							<span th:errors="${article.price}"></span>
+						</div>
+
+						<div class="form-group mb-3">
+
+							<label class="control-label">Category</label>
+
+							<select name="catName" class="form-control mb-3">
+
+
+
+								<option th:each="c:${category}" th:text="${c.name}"></option>
+
+
+
+							</select>
+
+
+
+						</div>
+
+
+						<button type=" submit" class="btn btn-primary">Save</button>
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 
 </body>
